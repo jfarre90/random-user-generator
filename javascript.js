@@ -4,6 +4,7 @@ var email = document.querySelector("#email");
 var user = document.querySelector("#username");
 var fullname = document.querySelector("#fullname");
 var avatar = document.querySelector("#avatar");
+var url = 'https://randomuser.me/api';
 
 function handleErrors(request){
   if(!request.ok) {
@@ -21,7 +22,7 @@ function updateProfile(data){
   email.innerText = data.results[0].email;
   user.innerText = data.results[0].login.username;
   fullname.innerText = data.results[0].name.first + " " + data.results[0].name.last;
-  avatar.src = data.results[0].picture.thumbnail;
+  avatar.src = data.results[0].picture.medium;
 }
 
 function printError(request){
@@ -29,7 +30,6 @@ function printError(request){
 }
 
 function getNewUser(){
-    var url = 'https://randomuser.me/api';
     fetch(url)
     .then(handleErrors)
     .then(parseJSON)
