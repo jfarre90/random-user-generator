@@ -21,7 +21,7 @@ function updateProfile(data){
   email.innerText = data.results[0].email;
   user.innerText = data.results[0].login.username;
   fullname.innerText = data.results[0].name.first + " " + data.results[0].name.last;
-  avatar.innerText = data.results[0].picture.thumbnail;
+  avatar.src = data.results[0].picture.thumbnail;
 }
 
 function printError(request){
